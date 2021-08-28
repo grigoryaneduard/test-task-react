@@ -1,26 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import styled from "styled-components";
+import {AppBar, Container, Grid, Typography} from "@material-ui/core";
+import CategoryList from "./componets/CategoryList";
+import CatList from "./componets/CatList";
+
+const StyledApp = styled.div`
+  background-color: #f4f6f8;
+  height: 100vh;
+`;
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return <StyledApp>
+        <AppBar position="relative" color={'primary'} style={{padding: 0}}>
+            <Typography variant="h6" color="inherit" style={{padding: 10, textAlign: 'center'}}>
+                Gallery
+            </Typography>
+        </AppBar>
+
+        <Container>
+            <Grid container spacing={1}>
+                <Grid item xs={3}><CategoryList /></Grid>
+                <Grid item xs={6}><CatList /></Grid>
+            </Grid>
+        </Container>
+    </StyledApp>;
 }
 
 export default App;
