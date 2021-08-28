@@ -7,7 +7,7 @@ import CatList from "./componets/CatList";
 
 const StyledApp = styled.div`
   background-color: #f4f6f8;
-  height: 100vh;
+  height: 100%;
 `;
 
 function App() {
@@ -21,7 +21,7 @@ function App() {
         <Container>
             <Grid container spacing={1}>
                 <Grid item xs={3}><CategoryList /></Grid>
-                <Grid item xs={6}><CatList /></Grid>
+                <Grid item xs={9}><CatList /></Grid>
             </Grid>
         </Container>
     </StyledApp>;
