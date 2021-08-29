@@ -14,9 +14,7 @@ const CategoryList = observer(() => {
         <>
             <h2>Categories</h2>
             {categoryStore.data.length === 0 && <p>No Category</p>}
-            {categoryStore.data.map(category => {
-                return <CategoryItem key={category.id} category={category}/>;
-            })}
+            {categoryStore.data.map(category => <CategoryItem key={category.id} category={category}/>)}
         </>
     );
 });
