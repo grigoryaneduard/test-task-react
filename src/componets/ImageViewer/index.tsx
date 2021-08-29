@@ -13,7 +13,7 @@ const ImageViewer = observer(({data}: IProps) => {
     return (
         <CardMedia
             className={classes.media}
-            image={data.src}
+            image={data.url}
             title={data.name}
         />
     );

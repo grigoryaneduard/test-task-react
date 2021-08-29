@@ -8,7 +8,7 @@ const Gallery = observer(() => {
     return (
         <>
             {galleryStore.data.length === 0 && <p>There isn't selected category</p>}
-            {galleryStore.data.map(cat => <ImageViewer key={cat.id} data={cat}/>)}
+            {galleryStore.data.map(item => <ImageViewer key={item.id} data={item}/>)}
         </>
     );
 });

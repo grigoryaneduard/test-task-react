@@ -14,7 +14,7 @@ export class CategoryStore {
         this.data.push(category);
     };
 
-    *fetch() {
+    * fetch(): any {
         const params = {};
         const urlParams = new URLSearchParams(Object.entries(params));
         this.data = yield this.categoryService.get(urlParams);
