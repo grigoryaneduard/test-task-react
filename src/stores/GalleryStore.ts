@@ -3,7 +3,7 @@ import GalleryService from "../services/Gallery";
 import {ICategory} from "./CategoryStore";
 
 export interface IGallery {
-    id: Symbol,
+    id: number,
     name: string,
     breeds: [];
     categories: ICategory[];
@@ -23,11 +23,18 @@ export class GalleryStore {
         this.data.push(gallery);
     };
 
+    private makeData(list: []): IGallery[] {
+        return list.map((item: IGallery) => ({...item, id: item.id + Math.random()}));
+    }
+
     * fetchByCategoryId(cId: number): any {
+        if (cId === this.categoryId) {
+            return;
+        }
+
         const params = {limit: this.limit.toString(), page: this.page.toString(), category_ids: cId.toString()};
         const urlParams = new URLSearchParams(Object.entries(params));
-        const data = yield this.galleryService.get(urlParams);
-        this.data = data.map((item: any) => ({...item, id: Symbol(item.id)}));
+        this.data = this.makeData(yield this.galleryService.get(urlParams));
         this.categoryId = cId;
     }
 
@@ -39,7 +46,7 @@ export class GalleryStore {
             category_ids: this.categoryId?.toString()!
         };
         const urlParams = new URLSearchParams(Object.entries(params));
-        this.data = [...this.data, ...yield this.galleryService.get(urlParams)];
+        this.data = [...this.data, ...this.makeData(yield this.galleryService.get(urlParams))];
     }
 
     constructor() {

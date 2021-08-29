@@ -20,7 +20,7 @@ const Gallery = observer(() => {
                 <h3>Your selected category name: {galleryStore.data[0].categories[0].name.toUpperCase()}</h3>}
             </Grid>
 
-            {galleryStore.data.map(item => <ImageViewer key={item.id.toString()} data={item}/>)}
+            {galleryStore.data.map(item => <ImageViewer key={item.id} data={item}/>)}
 
             <Grid container
                   direction="row"
