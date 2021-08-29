@@ -18,8 +18,8 @@ function App() {
 
         <Container>
             <Grid container spacing={1}>
-                <Grid item xs={3}><CategoryList/></Grid>
-                <Grid item xs={9}><Gallery/></Grid>
+                <Grid item xs={2}><CategoryList/></Grid>
+                <Grid item xs={10}><Gallery/></Grid>
             </Grid>
         </Container>
     </>;

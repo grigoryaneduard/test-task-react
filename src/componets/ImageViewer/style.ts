@@ -4,7 +4,7 @@ export const useStyles = makeStyles({
     media: {
         display: "inline-block",
         margin: 10,
-        width: 345,
+        width: 300,
         height: 140,
         borderRadius: 8,
     },
