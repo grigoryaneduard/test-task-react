@@ -27,7 +27,7 @@ export class GalleryStore {
         this.page = 1;
         const params = {};
         const urlParams = new URLSearchParams(Object.entries(params));
-        this.data = yield this.galleryService.get(urlParams);
+        this.data = [...yield this.galleryService.get(urlParams)];
     }
 
     * fetchByCategoryId(cId: number): any {
