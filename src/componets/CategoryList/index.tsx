@@ -7,7 +7,7 @@ const CategoryList = observer(() => {
 
     return (
         <>
-            <h2>Category List</h2>
+            <h2>Categories</h2>
             {categoryStore.categories.map(category => {
                 return <CategoryItem key={category.id} category={category}/>;
             })}

@@ -1,14 +1,12 @@
-import {Card, CardActionArea, CardContent, CardMedia, makeStyles, Typography} from "@material-ui/core";
+import {CardMedia, makeStyles} from "@material-ui/core";
 import {observer} from "mobx-react";
 import {ICat} from "../../stores/CatStore";
 
 const useStyles = makeStyles({
-    root: {
-        width: 345,
-        margin: 10,
-        display: "inline-block"
-    },
     media: {
+        display: "inline-block",
+        margin: 10,
+        width: 345,
         height: 140,
     },
 });
@@ -21,20 +19,11 @@ const CatItem = observer(({cat}: IProps) => {
     const classes = useStyles();
 
     return (
-        <Card className={classes.root}>
-            <CardActionArea>
-                <CardMedia
-                    className={classes.media}
-                    image={cat.src}
-                    title={cat.name}
-                />
-                <CardContent>
-                    <Typography variant="body2" color="textSecondary" component="p">
-                        {cat.name}
-                    </Typography>
-                </CardContent>
-            </CardActionArea>
-        </Card>
+        <CardMedia
+            className={classes.media}
+            image={cat.src}
+            title={cat.name}
+        />
     );
 });
 

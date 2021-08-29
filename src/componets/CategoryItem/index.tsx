@@ -7,7 +7,7 @@ interface IProps {
 
 const CategoryItem = observer(({category}: IProps) => {
     return (
-        <h5>{category.name}</h5>
+        <p>{category.name.toUpperCase()}</p>
     );
 });
 

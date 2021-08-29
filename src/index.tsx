@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {AppBar, Container, Grid, Typography} from "@material-ui/core";
-import {StyledApp, useStyles} from "./style";
+import {useStyles} from "./style";
 import './index.scss';
 import CategoryList from "./componets/CategoryList";
 import CatList from "./componets/CatList";
@@ -9,7 +9,7 @@ import CatList from "./componets/CatList";
 function App() {
     const classes = useStyles();
 
-    return <StyledApp>
+    return <>
         <AppBar position="static" className={classes.appBar}>
             <Typography variant="h6" className={classes.title}>
                 Gallery
@@ -22,7 +22,7 @@ function App() {
                 <Grid item xs={9}><CatList/></Grid>
             </Grid>
         </Container>
-    </StyledApp>;
+    </>;
 }
 
 ReactDOM.render(
