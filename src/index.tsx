@@ -1,12 +1,34 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import {AppBar, Container, Grid, Typography} from "@material-ui/core";
+import {StyledApp, useStyles} from "./style";
+import './index.scss';
+import CategoryList from "./componets/CategoryList";
+import CatList from "./componets/CatList";
+
+function App() {
+    const classes = useStyles();
+
+    return <StyledApp>
+        <AppBar position="static" className={classes.appBar}>
+            <Typography variant="h6" className={classes.title}>
+                Gallery
+            </Typography>
+        </AppBar>
+
+        <Container>
+            <Grid container spacing={1}>
+                <Grid item xs={3}><CategoryList/></Grid>
+                <Grid item xs={9}><CatList/></Grid>
+            </Grid>
+        </Container>
+    </StyledApp>;
+}
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+    <React.StrictMode>
+        <App/>
+    </React.StrictMode>,
+    document.getElementById('root')
 );
 
