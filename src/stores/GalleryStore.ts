@@ -3,7 +3,7 @@ import GalleryService from "../services/Gallery";
 import {ICategory} from "./CategoryStore";
 
 export interface IGallery {
-    id: number,
+    id: Symbol,
     name: string,
     breeds: [];
     categories: ICategory[];
@@ -26,7 +26,8 @@ export class GalleryStore {
     * fetchByCategoryId(cId: number): any {
         const params = {limit: this.limit.toString(), page: this.page.toString(), category_ids: cId.toString()};
         const urlParams = new URLSearchParams(Object.entries(params));
-        this.data = yield this.galleryService.get(urlParams);
+        const data = yield this.galleryService.get(urlParams);
+        this.data = data.map((item: any) => ({...item, id: Symbol(item.id)}));
         this.categoryId = cId;
     }
 
