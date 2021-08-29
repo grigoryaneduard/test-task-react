@@ -2,7 +2,7 @@ import {observer} from "mobx-react";
 import {ICategory} from "../../stores/CategoryStore";
 import './index.scss';
 
-type OnSelect = (a: string) => void;
+type OnSelect = (a: number) => void;
 
 interface IProps {
     category: ICategory;
@@ -11,8 +11,8 @@ interface IProps {
 }
 
 const CategoryItem = observer(({category, onSelect, isSelected}: IProps) => {
-    return (<p className={isSelected ? 'selected' : '' }
-               onClick={() => onSelect(category.id.toString())}>{category.name.toUpperCase()}</p>);
+    return (<p className={isSelected ? 'selected' : ''}
+               onClick={() => onSelect(category.id)}>{category.name.toUpperCase()}</p>);
 });
 
 

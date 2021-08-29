@@ -1,7 +1,6 @@
 import {action, flow, makeObservable, observable} from "mobx";
 import GalleryService from "../services/Gallery";
 import {ICategory} from "./CategoryStore";
-import assert from "assert";
 
 export interface IGallery {
     id: number,
@@ -18,7 +17,7 @@ export class GalleryStore {
     public data: IGallery[] = [];
     private page = 1;
     private limit = 10;
-    public categoryId: string | undefined;
+    public categoryId: number | undefined;
 
     public addData = (gallery: IGallery) => {
         this.data.push(gallery);
@@ -31,11 +30,8 @@ export class GalleryStore {
         this.data = yield this.galleryService.get(urlParams);
     }
 
-    * fetchByCategoryId(cId: string): any {
-        assert(cId !== undefined, 'Please enter valid category id');
-        assert(cId !== null, 'Please enter valid category id');
-        assert(cId !== '', 'Please enter valid category id');
-        const params = {limit: this.limit.toString(), page: this.page.toString(), category_ids: cId};
+    * fetchByCategoryId(cId: number): any {
+        const params = {limit: this.limit.toString(), page: this.page.toString(), category_ids: cId.toString()};
         const urlParams = new URLSearchParams(Object.entries(params));
         this.data = yield this.galleryService.get(urlParams);
         this.categoryId = cId;
@@ -43,7 +39,11 @@ export class GalleryStore {
 
     * loadMore(): any {
         this.page += 1;
-        const params = {limit: this.limit.toString(), page: this.page.toString(), category_ids: this.categoryId!};
+        const params = {
+            limit: this.limit.toString(),
+            page: this.page.toString(),
+            category_ids: this.categoryId?.toString()!
+        };
         const urlParams = new URLSearchParams(Object.entries(params));
         this.data = [...this.data, ...yield this.galleryService.get(urlParams)];
     }

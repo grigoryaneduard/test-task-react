@@ -4,7 +4,7 @@ import CategoryItem from "../CategoryItem";
 import {useStores} from "../../use-stores";
 
 const CategoryList = observer(() => {
-    const [selectedId, changeSelectedId] = useState('');
+    const [selectedId, changeSelectedId] = useState(0);
 
     const {categoryStore, galleryStore} = useStores();
 
@@ -12,7 +12,7 @@ const CategoryList = observer(() => {
         categoryStore.fetch();
     }, [categoryStore]);
 
-    function onSelected(id: string) {
+    function onSelected(id: number) {
         changeSelectedId(id);
         galleryStore.fetchByCategoryId(id);
     }
@@ -23,7 +23,7 @@ const CategoryList = observer(() => {
             {categoryStore.data.length === 0 && <p>No Category</p>}
             {categoryStore.data.map(category =>
                 <CategoryItem key={category.id} category={category} onSelect={onSelected}
-                              isSelected={category.id.toString() === selectedId}/>)}
+                              isSelected={category.id === selectedId}/>)}
         </>
     );
 });
