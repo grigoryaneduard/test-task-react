@@ -8,22 +8,22 @@ export interface ICategory {
 
 export class CategoryStore {
     private categoryService: CategoryService;
-    public categories: ICategory[] = [];
+    public data: ICategory[] = [];
 
-    public addCat = (category: ICategory) => {
-        this.categories.push(category);
+    public addData = (category: ICategory) => {
+        this.data.push(category);
     };
 
     *fetch() {
         const params = {};
         const urlParams = new URLSearchParams(Object.entries(params));
-        this.categories = yield this.categoryService.get(urlParams);
+        this.data = yield this.categoryService.get(urlParams);
     }
 
     constructor() {
         makeObservable(this, {
-            categories: observable,
-            addCat: action,
+            data: observable,
+            addData: action,
             fetch: flow
         });
 

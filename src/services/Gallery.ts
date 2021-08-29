@@ -1,6 +1,6 @@
 const webApiUrl = "https://api.thecatapi.com/v1/images/search?limit=10&page=1&category_ids=5";
 
-export default class CatService {
+export default class GalleryService {
     get = async (urlParams: any) => {
         const options = {
             method: "GET",

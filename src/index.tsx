@@ -4,7 +4,7 @@ import {AppBar, Container, Grid, Typography} from "@material-ui/core";
 import {useStyles} from "./style";
 import './index.scss';
 import CategoryList from "./componets/CategoryList";
-import CatList from "./componets/CatList";
+import Gallery from "./componets/Gallery";
 
 function App() {
     const classes = useStyles();
@@ -19,7 +19,7 @@ function App() {
         <Container>
             <Grid container spacing={1}>
                 <Grid item xs={3}><CategoryList/></Grid>
-                <Grid item xs={9}><CatList/></Grid>
+                <Grid item xs={9}><Gallery/></Grid>
             </Grid>
         </Container>
     </>;

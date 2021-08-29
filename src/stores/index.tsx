@@ -1,9 +1,9 @@
 import { createContext } from "react";
 import { CategoryStore } from "./CategoryStore";
-import { CatStore } from "./CatStore";
+import { GalleryStore } from "./GalleryStore";
 
 export const rootStoreContext = createContext({
     categoryStore: new CategoryStore(),
-    catStore: new CatStore(),
+    galleryStore: new GalleryStore(),
 });
 

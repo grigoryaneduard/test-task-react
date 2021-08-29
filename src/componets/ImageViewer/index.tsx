@@ -1,23 +1,23 @@
 import {CardMedia} from "@material-ui/core";
 import {observer} from "mobx-react";
-import {ICat} from "../../stores/CatStore";
+import {IGallery} from "../../stores/GalleryStore";
 import {useStyles} from "./style";
 
 interface IProps {
-    cat: ICat;
+    data: IGallery;
 }
 
-const CatItem = observer(({cat}: IProps) => {
+const ImageViewer = observer(({data}: IProps) => {
     const classes = useStyles();
 
     return (
         <CardMedia
             className={classes.media}
-            image={cat.src}
-            title={cat.name}
+            image={data.src}
+            title={data.name}
         />
     );
 });
 
 
-export default CatItem;
+export default ImageViewer;
