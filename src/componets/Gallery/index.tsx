@@ -7,6 +7,10 @@ import {Container} from "./style";
 const Gallery = observer(() => {
     const {galleryStore} = useStores();
 
+    function onLoadMore() {
+        galleryStore.loadMore();
+    }
+
     return (
         <Container>
             <Grid item xs={12}>
@@ -24,7 +28,7 @@ const Gallery = observer(() => {
                   justifyContent="center"
                   alignItems="center">
                 {galleryStore.data.length > 0 &&
-                <Button variant="contained" color="primary">
+                <Button variant="contained" color="primary" onClick={() => onLoadMore()}>
                     Load more
                 </Button>}
             </Grid>

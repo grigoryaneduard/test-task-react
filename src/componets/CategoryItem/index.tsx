@@ -11,8 +11,6 @@ interface IProps {
 }
 
 const CategoryItem = observer(({category, onSelect, isSelected}: IProps) => {
-    console.log(isSelected);
-
     return (<p className={isSelected ? 'selected' : '' }
                onClick={() => onSelect(category.id.toString())}>{category.name.toUpperCase()}</p>);
 });
