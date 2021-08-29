@@ -1,2 +1,11 @@
-import styled from "styled-components";
+import {makeStyles} from "@material-ui/core";
+
+export const useStyles = makeStyles({
+    media: {
+        display: "inline-block",
+        margin: 10,
+        width: 345,
+        height: 140,
+    },
+});
 

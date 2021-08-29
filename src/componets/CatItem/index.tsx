@@ -1,15 +1,7 @@
-import {CardMedia, makeStyles} from "@material-ui/core";
+import {CardMedia} from "@material-ui/core";
 import {observer} from "mobx-react";
 import {ICat} from "../../stores/CatStore";
-
-const useStyles = makeStyles({
-    media: {
-        display: "inline-block",
-        margin: 10,
-        width: 345,
-        height: 140,
-    },
-});
+import {useStyles} from "./style";
 
 interface IProps {
     cat: ICat;
