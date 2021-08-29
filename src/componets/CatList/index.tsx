@@ -7,6 +7,7 @@ const CatList = observer(() => {
 
     return (
         <>
+            {catStore.cats.length === 0 && <p>There isn't selected category</p>}
             {catStore.cats.map(cat => {
                 return <CatItem key={cat.id} cat={cat}/>;
             })}
