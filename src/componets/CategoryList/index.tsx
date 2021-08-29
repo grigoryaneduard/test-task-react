@@ -1,9 +1,14 @@
+import {useEffect} from "react";
 import {observer} from "mobx-react";
 import CategoryItem from "../CategoryItem";
 import {useStores} from "../../use-stores";
 
 const CategoryList = observer(() => {
     const {categoryStore} = useStores();
+
+    useEffect(() => {
+        categoryStore.fetch();
+    }, [categoryStore]);
 
     return (
         <>
