@@ -31,8 +31,6 @@ const Gallery = observer(() => {
                     Load more
                 </Button>}
             </Grid>
-
-
         </Container>
     );
 });
