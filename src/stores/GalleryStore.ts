@@ -23,13 +23,6 @@ export class GalleryStore {
         this.data.push(gallery);
     };
 
-    * fetch(): any {
-        this.page = 1;
-        const params = {};
-        const urlParams = new URLSearchParams(Object.entries(params));
-        this.data = [...yield this.galleryService.get(urlParams)];
-    }
-
     * fetchByCategoryId(cId: number): any {
         const params = {limit: this.limit.toString(), page: this.page.toString(), category_ids: cId.toString()};
         const urlParams = new URLSearchParams(Object.entries(params));
@@ -54,7 +47,6 @@ export class GalleryStore {
             addData: action,
             fetchByCategoryId: flow,
             loadMore: flow,
-            fetch: flow,
         });
 
         this.galleryService = new GalleryService();
